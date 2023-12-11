@@ -16,8 +16,6 @@ class SignupView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class LoginView(APIView):
-    def get(self, request):
-        return Response({"user":request.user.username})
     @transaction.atomic
     def post(self, request):
         if request.user.is_authenticated:
